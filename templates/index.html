@@ -1,1 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepFake | AI Authenticity Lab</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="upload-section">
+            <h1>DeepFake <span class="badge">AI</span></h1>
+            <p class="subtitle">Upload media to verify biological authenticity.</p>
+            
+            <div class="drop-zone" id="dropZone">
+                <div class="icon">📁</div>
+                <p id="fileInfo">Drag & Drop or Click to Browse</p>
+                <input type="file" id="fileInput" hidden>
+            </div>
+            
+            <button class="btn-primary" id="analyzeBtn">Start Deep Analysis</button>
+            <div class="scanning-bar" id="scanner"></div>
+        </div>
 
+        <div class="results-section" id="resultsSection">
+            <div class="placeholder-text">Waiting for analysis...</div>
+            <div class="actual-results" style="display:none;">
+                <div class="status-header">
+                    <span id="statusLabel">RESULT</span>
+                    <h2 id="resultStatus">---</h2>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <label>Confidence</label>
+                        <div class="progress-bg"><div class="progress-fill" id="confFill"></div></div>
+                        <span id="confValue">0%</span>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <label>Detection Point</label>
+                    <p id="shortDiff">None detected</p>
+                </div>
+
+                <div class="info-card">
+                    <label>Detailed Forensic Analysis</label>
+                    <p id="detailedExp" class="small-text"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
